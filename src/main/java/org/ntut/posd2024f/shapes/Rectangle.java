@@ -8,22 +8,22 @@ public class Rectangle implements Shape {
         if (width <= 0 || length <= 0) {
             throw new Exception("It's not a rectangle!");
         }
-        this.width = width;
         this.length = length;
+        this.width = width;
     }
 
     @Override
     public double area() {
-        return width * length;
+        return length * width;
     }
 
     @Override
     public double perimeter() {
-        return (width + length) * 2;
+        return (length + width) * 2;
     }
 
     @Override
     public String toString() {
-        return String.format("Rectangle " + width + " " + length);
+        return String.format("Rectangle " + length + " " + width);
     }
 }
