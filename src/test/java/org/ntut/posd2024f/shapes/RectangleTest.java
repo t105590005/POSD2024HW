@@ -61,6 +61,6 @@ public class RectangleTest {
     @Test
     public void testToString() throws Exception {
         Rectangle r = new Rectangle(5.0, 6.0);
-        assertEquals("Rectangle " + r.width + " " + r.length, r.toString());
+        assertEquals("Rectangle " + r.length + " " + r.width, r.toString());
     }
 }

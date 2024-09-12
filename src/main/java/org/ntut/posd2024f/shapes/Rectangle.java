@@ -5,7 +5,7 @@ public class Rectangle implements Shape {
     double width;
 
     public Rectangle(double length, double width) throws Exception {
-        if (width <= 0 || length <= 0) {
+        if (length <= 0 || width <= 0) {
             throw new Exception("It's not a rectangle!");
         }
         this.length = length;
