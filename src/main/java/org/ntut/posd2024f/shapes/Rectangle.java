@@ -12,17 +12,14 @@ public class Rectangle implements Shape {
         this.width = width;
     }
 
-    @Override
     public double area() {
         return length * width;
     }
 
-    @Override
     public double perimeter() {
         return (length + width) * 2;
     }
 
-    @Override
     public String toString() {
         return String.format("Rectangle " + length + " " + width);
     }

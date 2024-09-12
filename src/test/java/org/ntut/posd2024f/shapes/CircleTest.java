@@ -13,8 +13,8 @@ public class CircleTest {
 
     @Test
     public void testCircleConstructorPositiveRadius() throws Exception {
-        Circle c = new Circle(5.0);
-        assertEquals(5.0, c.radius, 0.01);
+        Circle c = new Circle(4.8);
+        assertEquals(4.8, c.radius, 0.01);
     }
 
     @Test
@@ -28,24 +28,24 @@ public class CircleTest {
     public void testCircleConstructorNegativeRadius() throws Exception {
         thrown.expect(Exception.class);
         thrown.expectMessage("It's not a circle!");
-        new Circle(-5.0);
+        new Circle(-4.8);
     }
 
     @Test
     public void testArea() throws Exception {
-        Circle c = new Circle(1.0);
-        assertEquals(Math.PI, c.area(), 0.01);
+        Circle c = new Circle(4.8);
+        assertEquals(Math.PI * 4.8 * 4.8, c.area(), 0.01);
     }
 
     @Test
     public void testPerimeter() throws Exception {
-        Circle c = new Circle(1.0);
-        assertEquals(2 * Math.PI, c.perimeter(), 0.01);
+        Circle c = new Circle(4.8);
+        assertEquals(2 * 4.8 * Math.PI, c.perimeter(), 0.01);
     }
 
     @Test
     public void testToString() throws Exception {
-        Circle c = new Circle(1.0);
+        Circle c = new Circle(4.8);
         assertEquals("Circle " + c.radius, c.toString());
     }
 }

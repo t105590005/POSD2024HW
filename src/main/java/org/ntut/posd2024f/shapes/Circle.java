@@ -10,17 +10,14 @@ public class Circle implements Shape {
         this.radius = radius;
     }
 
-    @Override
     public double area() {
         return Math.PI * Math.pow(radius, 2);
     }
 
-    @Override
     public double perimeter() {
         return Math.PI * radius * 2;
     }
 
-    @Override
     public String toString() {
         return String.format("Circle " + radius);
     }

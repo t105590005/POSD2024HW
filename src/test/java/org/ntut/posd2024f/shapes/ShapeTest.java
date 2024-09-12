@@ -7,8 +7,8 @@ import java.util.ArrayList;
 public class ShapeTest {
     @Test
     public void testShapeInterface() throws Exception {
-        Shape circle = new Circle(2);
-        Shape rectangle = new Rectangle(2, 3);
+        Shape circle = new Circle(4.8);
+        Shape rectangle = new Rectangle(4, 8);
         Shape triangle = new Triangle(3, 4, 5);
 
         ArrayList<Shape> shapes = new ArrayList<>();

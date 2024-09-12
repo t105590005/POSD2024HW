@@ -10,7 +10,6 @@ public class Sort {
 
     private static class ByAreaAscending implements Comparator<Shape> {
 
-        @Override
         public int compare(Shape left, Shape right) {
             return Double.compare(left.area(), right.area());
         }
