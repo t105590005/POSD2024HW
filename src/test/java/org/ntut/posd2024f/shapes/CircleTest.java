@@ -20,14 +20,14 @@ public class CircleTest {
     @Test
     public void testCircleConstructorZeroRadius() throws Exception {
         thrown.expect(Exception.class);
-        thrown.expectMessage("Radius must be positive");
+        thrown.expectMessage("It's not a circle!");
         new Circle(0);
     }
 
     @Test
     public void testCircleConstructorNegativeRadius() throws Exception {
         thrown.expect(Exception.class);
-        thrown.expectMessage("Radius must be positive");
+        thrown.expectMessage("It's not a circle!");
         new Circle(-5.0);
     }
 

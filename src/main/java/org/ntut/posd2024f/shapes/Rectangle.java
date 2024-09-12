@@ -6,7 +6,7 @@ public class Rectangle implements Shape {
 
     public Rectangle(double length, double width) throws Exception {
         if (width <= 0 || length <= 0) {
-            throw new Exception("Width and length must be positive");
+            throw new Exception("It's not a rectangle!");
         }
         this.width = width;
         this.length = length;

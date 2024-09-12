@@ -11,10 +11,10 @@ public class Triangle implements Shape {
 
     Triangle(double a, double b, double c) throws Exception {
         if (a <= 0 || b <= 0 || c <= 0) {
-            throw new Exception("Sides must be positive");
+            throw new Exception("It's not a triangle!");
         }
         if (a + b <= c || b + c <= a || a + c <= b) {
-            throw new Exception("The given sides do not form a valid triangle");
+            throw new Exception("It's not a triangle!");
         }
         this.a = a;
         this.b = b;

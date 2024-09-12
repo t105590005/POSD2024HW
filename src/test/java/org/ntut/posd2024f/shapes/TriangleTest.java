@@ -24,42 +24,42 @@ public class TriangleTest {
     @Test
     public void testTriangleConstructorZeroSidea() throws Exception {
         thrown.expect(Exception.class);
-        thrown.expectMessage("Sides must be positive");
+        thrown.expectMessage("It's not a triangle!");
         new Triangle(0, 4.0, 5.0);
     }
 
     @Test
     public void testTriangleConstructorZeroSideb() throws Exception {
         thrown.expect(Exception.class);
-        thrown.expectMessage("Sides must be positive");
+        thrown.expectMessage("It's not a triangle!");
         new Triangle(3.0, 0, 5.0);
     }
 
     @Test
     public void testTriangleConstructorZeroSidec() throws Exception {
         thrown.expect(Exception.class);
-        thrown.expectMessage("Sides must be positive");
+        thrown.expectMessage("It's not a triangle!");
         new Triangle(3.0, 4.0, 0);
     }
 
     @Test
     public void testTriangleConstructorNegativeSidea() throws Exception {
         thrown.expect(Exception.class);
-        thrown.expectMessage("Sides must be positive");
+        thrown.expectMessage("It's not a triangle!");
         new Triangle(-3.0, 4.0, 5.0);
     }
 
     @Test
     public void testTriangleConstructorNegativeSideb() throws Exception {
         thrown.expect(Exception.class);
-        thrown.expectMessage("Sides must be positive");
+        thrown.expectMessage("It's not a triangle!");
         new Triangle(3.0, -4.0, 5.0);
     }
 
     @Test
     public void testTriangleConstructorNegativeSidec() throws Exception {
         thrown.expect(Exception.class);
-        thrown.expectMessage("Sides must be positive");
+        thrown.expectMessage("It's not a triangle!");
         new Triangle(-3.0, 4.0, -5.0);
     }
 
