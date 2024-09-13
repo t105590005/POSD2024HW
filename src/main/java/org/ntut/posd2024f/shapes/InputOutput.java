@@ -16,8 +16,8 @@ public class InputOutput {
     public ArrayList<Shape> handleInput(String inputFileName) throws NumberFormatException, Exception {
         ArrayList<Shape> shapes = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(inputFileName))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
+            String line = reader.readLine();
+            while (line != null) {
                 try {
                     Shape shape = ConstructShape(line);
                     if (shape != null) {
@@ -26,6 +26,7 @@ public class InputOutput {
                 } catch (Exception e) {
                     // Ignore invalid shapes
                 }
+                line = reader.readLine();
             }
         } catch (IOException e) {
             throw new Exception("Error reading input file");
@@ -62,7 +63,6 @@ public class InputOutput {
 
     private Shape ConstructShape(String str) throws NumberFormatException, Exception {
         String[] parts = str.split(" ");
-        System.out.println(parts);
         switch (parts[0]) {
             case "Circle":
                 if (parts.length != 2)

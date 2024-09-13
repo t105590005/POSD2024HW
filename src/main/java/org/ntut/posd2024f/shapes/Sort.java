@@ -13,7 +13,6 @@ public class Sort {
         public int compare(Shape left, Shape right) {
             return Double.compare(left.area(), right.area());
         }
-
     }
 
     private static class ByAreaDescending implements Comparator<Shape> {

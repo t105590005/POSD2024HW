@@ -1,8 +1,6 @@
 package org.ntut.posd2024f.shapes;
 
 import java.lang.Math;
-//import java.util.ArrayList;
-//import java.util.Arrays;
 
 public class Triangle implements Shape {
     double a;

@@ -7,7 +7,6 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 public class CircleTest {
-    // e.g. Circle c = new Circle(...)
     @Rule
     public ExpectedException thrown = ExpectedException.none();
 

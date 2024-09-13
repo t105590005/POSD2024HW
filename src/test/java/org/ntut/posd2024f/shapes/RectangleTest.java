@@ -7,7 +7,6 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 public class RectangleTest {
-    // e.g. Rectangle r = new rectangle(...)
     @Rule
     public ExpectedException thrown = ExpectedException.none();
 
