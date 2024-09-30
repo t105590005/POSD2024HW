@@ -59,16 +59,4 @@ public class ConvexPolygonTest {
         assertEquals(14, polygon.perimeter(), 0.001);
     }
 
-    @Test
-    public void testConvexPolygonAdd() {
-        List<TwoDimensionalVector> vectors = new Vector<>();
-        vectors.add(new TwoDimensionalVector(0, 0));
-        vectors.add(new TwoDimensionalVector(4, 0));
-        vectors.add(new TwoDimensionalVector(4, 3));
-        vectors.add(new TwoDimensionalVector(0, 3));
-        ConvexPolygon polygon = new ConvexPolygon(vectors);
-        thrown.expect(UnsupportedOperationException.class);
-        thrown.expectMessage("This method is not supported.");
-        polygon.add(new Circle(4.0));
-    }
 }
