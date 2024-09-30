@@ -8,7 +8,7 @@ public class Triangle implements Shape {
     TwoDimensionalVector v2;
     TwoDimensionalVector v3;
 
-    public Triangle(List<TwoDimensionalVector> vectors) {
+    public Triangle(List<TwoDimensionalVector> vectors) throws ShapeException {
         if (vectors.size() != 3) {
             throw new ShapeException("It's not a triangle!");
         } else {

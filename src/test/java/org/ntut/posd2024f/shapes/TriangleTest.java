@@ -15,7 +15,7 @@ public class TriangleTest {
 
     @Test
 
-    public void testTriangleConstructorFail() throws Exception {
+    public void testTriangleConstructorFail() throws ShapeException {
 
         TwoDimensionalVector a = new TwoDimensionalVector(0, 0);
         TwoDimensionalVector b = new TwoDimensionalVector(1, 0);
@@ -30,7 +30,7 @@ public class TriangleTest {
     }
 
     @Test
-    public void testTriangleConstructorSucess() throws Exception {
+    public void testTriangleConstructorSucess() throws ShapeException {
 
         TwoDimensionalVector a = new TwoDimensionalVector(0, 0);
         TwoDimensionalVector b = new TwoDimensionalVector(3, 0);
@@ -49,7 +49,7 @@ public class TriangleTest {
     }
 
     @Test
-    public void testArea() throws Exception {
+    public void testArea() throws ShapeException {
         TwoDimensionalVector a = new TwoDimensionalVector(0, 0);
         TwoDimensionalVector b = new TwoDimensionalVector(3, 0);
         TwoDimensionalVector c = new TwoDimensionalVector(0, 4);
@@ -62,7 +62,7 @@ public class TriangleTest {
     }
 
     @Test
-    public void testPerimeter() throws Exception {
+    public void testPerimeter() throws ShapeException {
         TwoDimensionalVector a = new TwoDimensionalVector(0, 0);
         TwoDimensionalVector b = new TwoDimensionalVector(-3, 0);
         TwoDimensionalVector c = new TwoDimensionalVector(0, 4);

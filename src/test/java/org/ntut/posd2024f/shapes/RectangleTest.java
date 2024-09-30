@@ -11,54 +11,54 @@ public class RectangleTest {
     public ExpectedException thrown = ExpectedException.none();
 
     @Test
-    public void testRectangleConstructorPositiveDimensions() throws Exception {
+    public void testRectangleConstructorPositiveDimensions() throws ShapeException {
         Rectangle r = new Rectangle(4.0, 8.0);
         assertEquals(4.0, r.length, 0.01);
         assertEquals(8.0, r.width, 0.01);
     }
 
     @Test
-    public void testRectangleConstructorZeroWidth() throws Exception {
+    public void testRectangleConstructorZeroWidth() throws ShapeException {
         thrown.expect(ShapeException.class);
         thrown.expectMessage("It's not a rectangle!");
         new Rectangle(0, 8.0);
     }
 
     @Test
-    public void testRectangleConstructorZeroHeight() throws Exception {
+    public void testRectangleConstructorZeroHeight() throws ShapeException {
         thrown.expect(ShapeException.class);
         thrown.expectMessage("It's not a rectangle!");
         new Rectangle(4.0, 0);
     }
 
     @Test
-    public void testRectangleConstructorNegativeWidth() throws Exception {
+    public void testRectangleConstructorNegativeWidth() throws ShapeException {
         thrown.expect(ShapeException.class);
         thrown.expectMessage("It's not a rectangle!");
         new Rectangle(-4.0, 8.0);
     }
 
     @Test
-    public void testRectangleConstructorNegativeLength() throws Exception {
+    public void testRectangleConstructorNegativeLength() throws ShapeException {
         thrown.expect(ShapeException.class);
         thrown.expectMessage("It's not a rectangle!");
         new Rectangle(4.0, -8.0);
     }
 
     @Test
-    public void testArea() throws Exception {
+    public void testArea() throws ShapeException {
         Rectangle r = new Rectangle(4.0, 8.0);
         assertEquals(32.0, r.area(), 0.01);
     }
 
     @Test
-    public void testPerimeter() throws Exception {
+    public void testPerimeter() throws ShapeException {
         Rectangle r = new Rectangle(4.0, 8.0);
         assertEquals(24.0, r.perimeter(), 0.01);
     }
 
     @Test
-    public void testToString() throws Exception {
+    public void testToString() throws ShapeException {
         Rectangle r = new Rectangle(4.0, 8.0);
         assertEquals("Rectangle " + r.length + " " + r.width, r.toString());
     }

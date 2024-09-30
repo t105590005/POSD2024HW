@@ -8,7 +8,7 @@ import java.util.Vector;
 
 public class ShapeTest {
     @Test
-    public void testShapeInterface() throws Exception {
+    public void testShapeInterface() throws ShapeException {
         List<TwoDimensionalVector> vectors = new Vector<>();
         vectors.add(new TwoDimensionalVector(0, 0));
         vectors.add(new TwoDimensionalVector(4, 0));

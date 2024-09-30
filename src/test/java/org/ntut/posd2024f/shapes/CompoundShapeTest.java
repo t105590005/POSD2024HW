@@ -10,7 +10,7 @@ import org.junit.Test;
 public class CompoundShapeTest {
 
     @Test
-    public void testCompoundShapeArea() throws Exception {
+    public void testCompoundShapeArea() throws ShapeException {
         List<TwoDimensionalVector> vectors = new Vector<>();
         vectors.add(new TwoDimensionalVector(0, 0));
         vectors.add(new TwoDimensionalVector(4, 0));
