@@ -1,6 +1,6 @@
 package org.ntut.posd2024f.shapes;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.util.List;
 import java.util.Vector;
@@ -58,6 +58,17 @@ public class ConvexPolygonTest {
         vectors.add(new TwoDimensionalVector(0, 3));
         ConvexPolygon polygon = new ConvexPolygon(vectors);
         assertEquals(14, polygon.perimeter(), 0.001);
+    }
+
+    @Test
+    public void testConvexPolygonGetVectors() {
+        List<TwoDimensionalVector> vectors = new Vector<>();
+        vectors.add(new TwoDimensionalVector(0, 0));
+        vectors.add(new TwoDimensionalVector(4, 0));
+        vectors.add(new TwoDimensionalVector(4, 3));
+        vectors.add(new TwoDimensionalVector(0, 3));
+        ConvexPolygon polygon = new ConvexPolygon(vectors);
+        assertEquals(vectors, polygon.getVectors());
     }
 
 }

@@ -1,7 +1,7 @@
 package org.ntut.posd2024f.shapes;
 
 public class Circle implements Shape {
-    double radius;
+    private double radius;
 
     public Circle(double radius) throws ShapeException {
         if (radius <= 0) {
@@ -16,5 +16,9 @@ public class Circle implements Shape {
 
     public double perimeter() {
         return Math.PI * radius * 2;
+    }
+
+    public double getRadius() {
+        return radius;
     }
 }

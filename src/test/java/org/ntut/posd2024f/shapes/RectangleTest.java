@@ -13,8 +13,8 @@ public class RectangleTest {
     @Test
     public void testRectangleConstructorPositiveDimensions() throws ShapeException {
         Rectangle r = new Rectangle(4.0, 8.0);
-        assertEquals(4.0, r.length, 0.01);
-        assertEquals(8.0, r.width, 0.01);
+        assertEquals(4.0, r.getLength(), 0.01);
+        assertEquals(8.0, r.getWidth(), 0.01);
     }
 
     @Test

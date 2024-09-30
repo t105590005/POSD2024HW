@@ -40,12 +40,9 @@ public class TriangleTest {
         vectors.add(b);
         vectors.add(c);
         Triangle t = new Triangle(vectors);
-        t.v1 = a;
-        t.v2 = b;
-        t.v3 = c;
-        assertEquals(a, t.v1);
-        assertEquals(b, t.v2);
-        assertEquals(c, t.v3);
+        assertEquals(a, t.getV1());
+        assertEquals(b, t.getV2());
+        assertEquals(c, t.getV3());
     }
 
     @Test

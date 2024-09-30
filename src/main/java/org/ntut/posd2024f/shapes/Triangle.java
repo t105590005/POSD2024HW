@@ -4,9 +4,9 @@ import java.lang.Math;
 import java.util.List;
 
 public class Triangle implements Shape {
-    TwoDimensionalVector v1;
-    TwoDimensionalVector v2;
-    TwoDimensionalVector v3;
+    private TwoDimensionalVector v1;
+    private TwoDimensionalVector v2;
+    private TwoDimensionalVector v3;
 
     public Triangle(List<TwoDimensionalVector> vectors) throws ShapeException {
         if (vectors.size() != 3) {
@@ -40,5 +40,17 @@ public class Triangle implements Shape {
         double c = v3.subtract(v1).length();
         double s = (a + b + c) / 2;
         return Math.sqrt(s * (s - a) * (s - b) * (s - c));
+    }
+
+    public TwoDimensionalVector getV1() {
+        return v1;
+    }
+
+    public TwoDimensionalVector getV2() {
+        return v2;
+    }
+
+    public TwoDimensionalVector getV3() {
+        return v3;
     }
 }

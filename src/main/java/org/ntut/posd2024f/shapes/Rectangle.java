@@ -1,8 +1,8 @@
 package org.ntut.posd2024f.shapes;
 
 public class Rectangle implements Shape {
-    double length;
-    double width;
+    private double length;
+    private double width;
 
     public Rectangle(double length, double width) throws ShapeException {
         if (length <= 0 || width <= 0) {
@@ -18,5 +18,13 @@ public class Rectangle implements Shape {
 
     public double perimeter() {
         return (length + width) * 2;
+    }
+
+    public double getLength() {
+        return length;
+    }
+
+    public double getWidth() {
+        return width;
     }
 }

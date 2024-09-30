@@ -2,8 +2,8 @@ package org.ntut.posd2024f.shapes;
 
 public class TwoDimensionalVector {
 
-    int x;
-    int y;
+    private int x;
+    private int y;
 
     public TwoDimensionalVector(int x, int y) {
         this.x = x;

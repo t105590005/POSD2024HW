@@ -14,7 +14,7 @@ public class CircleTest {
     @Test
     public void testCircleConstructorPositiveRadius() throws ShapeException {
         Circle c = new Circle(4.0);
-        assertEquals(4.0, c.radius, 0.01);
+        assertEquals(4.0, c.getRadius(), 0.01);
     }
 
     @Test

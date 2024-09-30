@@ -3,7 +3,7 @@ package org.ntut.posd2024f.shapes;
 import java.util.List;
 
 public class ConvexPolygon implements Shape {
-    List<TwoDimensionalVector> vectors;
+    private List<TwoDimensionalVector> vectors;
 
     public ConvexPolygon(List<TwoDimensionalVector> vectors) {
         if (!isConvex(vectors)) {
@@ -70,4 +70,7 @@ public class ConvexPolygon implements Shape {
         return crossProduct;
     }
 
+    public List<TwoDimensionalVector> getVectors() {
+        return vectors;
+    }
 }
