@@ -2,7 +2,6 @@ package org.ntut.posd2024f.shapes;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Vector;
 
@@ -39,7 +38,7 @@ public class ConvexPolygonTest {
     }
 
     @Test
-    public void testArea() {
+    public void testConvexPolygonArea() {
         List<TwoDimensionalVector> vectors = new Vector<>();
         vectors.add(new TwoDimensionalVector(0, 0));
         vectors.add(new TwoDimensionalVector(4, 0));
@@ -50,14 +49,26 @@ public class ConvexPolygonTest {
     }
 
     @Test
-    public void testPerimeter() {
-        List<TwoDimensionalVector> vectors = Arrays.asList(
-                new TwoDimensionalVector(0, 0),
-                new TwoDimensionalVector(4, 0),
-                new TwoDimensionalVector(4, 3),
-                new TwoDimensionalVector(0, 3));
+    public void testConvexPolygonPerimeter() {
+        List<TwoDimensionalVector> vectors = new Vector<>();
+        vectors.add(new TwoDimensionalVector(0, 0));
+        vectors.add(new TwoDimensionalVector(4, 0));
+        vectors.add(new TwoDimensionalVector(4, 3));
+        vectors.add(new TwoDimensionalVector(0, 3));
         ConvexPolygon polygon = new ConvexPolygon(vectors);
         assertEquals(14, polygon.perimeter(), 0.001);
     }
 
+    @Test
+    public void testConvexPolygonAdd() {
+        List<TwoDimensionalVector> vectors = new Vector<>();
+        vectors.add(new TwoDimensionalVector(0, 0));
+        vectors.add(new TwoDimensionalVector(4, 0));
+        vectors.add(new TwoDimensionalVector(4, 3));
+        vectors.add(new TwoDimensionalVector(0, 3));
+        ConvexPolygon polygon = new ConvexPolygon(vectors);
+        thrown.expect(UnsupportedOperationException.class);
+        thrown.expectMessage("This method is not supported.");
+        polygon.add(new Circle(4.0));
+    }
 }

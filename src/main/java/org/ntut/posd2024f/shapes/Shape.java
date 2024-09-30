@@ -12,7 +12,7 @@ public interface Shape {
     }
 
     public default Iterator<Shape> iterator() {
-        return null;
+        return new NullIterator();
     }
 
 }

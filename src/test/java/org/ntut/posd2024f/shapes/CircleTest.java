@@ -2,6 +2,8 @@ package org.ntut.posd2024f.shapes;
 
 import static org.junit.Assert.*;
 
+import java.util.Iterator;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -42,4 +44,5 @@ public class CircleTest {
         Circle c = new Circle(4.0);
         assertEquals(Math.PI * 4 * 2, c.perimeter(), 0.01);
     }
+
 }
