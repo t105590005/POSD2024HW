@@ -17,8 +17,4 @@ public class Circle implements Shape {
     public double perimeter() {
         return Math.PI * radius * 2;
     }
-
-    public String toString() {
-        return String.format("Circle " + radius);
-    }
 }
