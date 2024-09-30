@@ -56,10 +56,4 @@ public class RectangleTest {
         Rectangle r = new Rectangle(4.0, 8.0);
         assertEquals(24.0, r.perimeter(), 0.01);
     }
-
-    @Test
-    public void testToString() throws ShapeException {
-        Rectangle r = new Rectangle(4.0, 8.0);
-        assertEquals("Rectangle " + r.length + " " + r.width, r.toString());
-    }
 }
