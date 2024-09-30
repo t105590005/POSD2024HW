@@ -38,11 +38,9 @@ public class ConvexPolygon implements Shape {
     }
 
     private boolean isConvex(List<TwoDimensionalVector> vectors) {
-        if (vectors.size() < 3) {
-            return false;
-        }
-        boolean clockwise = false;
-        boolean counterclockwise = false;
+
+        boolean hasPositive = false;
+        boolean hasNegative = false;
 
         for (int i = 0; i < vectors.size(); i++) {
             TwoDimensionalVector a = vectors.get(i);
@@ -51,11 +49,11 @@ public class ConvexPolygon implements Shape {
 
             int crossProduct = crossProduct(a, b, c);
             if (crossProduct > 0) {
-                counterclockwise = true;
+                hasPositive = true;
             } else if (crossProduct < 0) {
-                clockwise = true;
+                hasNegative = true;
             }
-            if (counterclockwise && clockwise) {
+            if (hasPositive && hasNegative) {
                 return false;
             }
         }
