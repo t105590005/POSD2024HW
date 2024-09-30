@@ -31,14 +31,22 @@ public class SortTest {
     @Test
     public void testSortByAreaDescending() throws Exception {
         List<TwoDimensionalVector> vectors = new Vector<>();
+        List<TwoDimensionalVector> vectors1 = new Vector<>();
+
         vectors.add(new TwoDimensionalVector(0, 0));
         vectors.add(new TwoDimensionalVector(4, 0));
         vectors.add(new TwoDimensionalVector(0, 3));
+
+        vectors1.add(new TwoDimensionalVector(0, 0));
+        vectors1.add(new TwoDimensionalVector(4, 0));
+        vectors1.add(new TwoDimensionalVector(0, 3));
+        vectors1.add(new TwoDimensionalVector(4, 3));
 
         ArrayList<Shape> shapes = new ArrayList<>();
         shapes.add(new Circle(4.8));
         shapes.add(new Rectangle(4, 8));
         shapes.add(new Triangle(vectors));
+        shapes.add(new ConvexPolygon(vectors1));
 
         Collections.sort(shapes, Sort.BY_AREA_DESCENDING);
 

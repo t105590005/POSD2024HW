@@ -6,7 +6,7 @@ public class ConvexPolygon implements Shape {
     List<TwoDimensionalVector> vectors;
 
     public ConvexPolygon(List<TwoDimensionalVector> vectors) {
-        if (!isSorted(vectors)) {
+        if (!isConvex(vectors)) {
             throw new ShapeException("It's not a convex polygon!");
         }
         this.vectors = vectors;
@@ -37,7 +37,7 @@ public class ConvexPolygon implements Shape {
         return perimeter;
     }
 
-    private boolean isSorted(List<TwoDimensionalVector> vectors) {
+    private boolean isConvex(List<TwoDimensionalVector> vectors) {
         if (vectors.size() < 3) {
             return false;
         }
@@ -49,10 +49,7 @@ public class ConvexPolygon implements Shape {
             TwoDimensionalVector b = vectors.get((i + 1) % vectors.size());
             TwoDimensionalVector c = vectors.get((i + 2) % vectors.size());
 
-            TwoDimensionalVector ab = b.subtract(a);
-            TwoDimensionalVector bc = c.subtract(b);
-
-            int crossProduct = ab.dot(bc);
+            int crossProduct = crossProduct(a, b, c);
 
             if (crossProduct > 0) {
                 clockwise = true;
@@ -66,6 +63,13 @@ public class ConvexPolygon implements Shape {
         }
 
         return true;
+    }
+
+    private int crossProduct(TwoDimensionalVector a, TwoDimensionalVector b, TwoDimensionalVector c) {
+        TwoDimensionalVector ab = a.subtract(b);
+        TwoDimensionalVector bc = b.subtract(c);
+        int crossProduct = ab.cross(bc);
+        return crossProduct;
     }
 
 }

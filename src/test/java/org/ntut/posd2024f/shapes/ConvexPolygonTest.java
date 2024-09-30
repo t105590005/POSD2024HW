@@ -30,10 +30,11 @@ public class ConvexPolygonTest {
     @Test
     public void testConvexPolygonConstructorSuccess() {
         List<TwoDimensionalVector> vectors = new Vector<>();
-        vectors.add(new TwoDimensionalVector(0, 0));
-        vectors.add(new TwoDimensionalVector(4, 0));
-        vectors.add(new TwoDimensionalVector(4, 3));
         vectors.add(new TwoDimensionalVector(0, 3));
+        vectors.add(new TwoDimensionalVector(-5, 3));
+        vectors.add(new TwoDimensionalVector(-5, -3));
+        vectors.add(new TwoDimensionalVector(0, -3));
+        vectors.add(new TwoDimensionalVector(4, 0));
         new ConvexPolygon(vectors);
     }
 
