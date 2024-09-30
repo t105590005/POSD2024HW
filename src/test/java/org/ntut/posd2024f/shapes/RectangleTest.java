@@ -19,28 +19,28 @@ public class RectangleTest {
 
     @Test
     public void testRectangleConstructorZeroWidth() throws Exception {
-        thrown.expect(Exception.class);
+        thrown.expect(ShapeException.class);
         thrown.expectMessage("It's not a rectangle!");
         new Rectangle(0, 8.0);
     }
 
     @Test
     public void testRectangleConstructorZeroHeight() throws Exception {
-        thrown.expect(Exception.class);
+        thrown.expect(ShapeException.class);
         thrown.expectMessage("It's not a rectangle!");
         new Rectangle(4.0, 0);
     }
 
     @Test
     public void testRectangleConstructorNegativeWidth() throws Exception {
-        thrown.expect(Exception.class);
+        thrown.expect(ShapeException.class);
         thrown.expectMessage("It's not a rectangle!");
         new Rectangle(-4.0, 8.0);
     }
 
     @Test
     public void testRectangleConstructorNegativeLength() throws Exception {
-        thrown.expect(Exception.class);
+        thrown.expect(ShapeException.class);
         thrown.expectMessage("It's not a rectangle!");
         new Rectangle(4.0, -8.0);
     }

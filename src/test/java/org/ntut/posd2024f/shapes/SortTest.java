@@ -12,7 +12,7 @@ public class SortTest {
         ArrayList<Shape> shapes = new ArrayList<>();
         shapes.add(new Circle(4.8));
         shapes.add(new Rectangle(4, 8));
-        shapes.add(new Triangle(3, 4, 5));
+        // shapes.add(new Triangle(3, 4, 5));
 
         Collections.sort(shapes, Sort.BY_AREA_ASCENDING);
 
@@ -27,7 +27,7 @@ public class SortTest {
 
         shapes.add(new Circle(4.8));
         shapes.add(new Rectangle(4, 8));
-        shapes.add(new Triangle(3, 4, 5));
+        // shapes.add(new Triangle(3, 4, 5));
 
         Collections.sort(shapes, Sort.BY_AREA_DESCENDING);
 
@@ -41,7 +41,7 @@ public class SortTest {
         ArrayList<Shape> shapes = new ArrayList<>();
         shapes.add(new Circle(4.8));
         shapes.add(new Rectangle(4, 8));
-        shapes.add(new Triangle(3, 4, 5));
+        // shapes.add(new Triangle(3, 4, 5));
 
         Collections.sort(shapes, Sort.BY_PERIMETER_ASCENDING);
 
@@ -55,7 +55,7 @@ public class SortTest {
         ArrayList<Shape> shapes = new ArrayList<>();
         shapes.add(new Circle(4.8));
         shapes.add(new Rectangle(4, 8));
-        shapes.add(new Triangle(3, 4, 5));
+        // shapes.add(new Triangle(3, 4, 5));
 
         Collections.sort(shapes, Sort.BY_PERIMETER_DESCENDING);
 

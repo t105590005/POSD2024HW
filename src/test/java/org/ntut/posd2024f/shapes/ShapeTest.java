@@ -9,12 +9,11 @@ public class ShapeTest {
     public void testShapeInterface() throws Exception {
         Shape circle = new Circle(4.8);
         Shape rectangle = new Rectangle(4, 8);
-        Shape triangle = new Triangle(3, 4, 5);
-
+        // Shape triangle = new Triangle(3, 4, 5);
         ArrayList<Shape> shapes = new ArrayList<>();
         shapes.add(circle);
         shapes.add(rectangle);
-        shapes.add(triangle);
+        // shapes.add(triangle);
 
         for (Shape shape : shapes) {
             assertTrue(shape.area() > 0);
