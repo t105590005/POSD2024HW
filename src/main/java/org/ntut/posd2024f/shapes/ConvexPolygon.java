@@ -50,14 +50,12 @@ public class ConvexPolygon implements Shape {
             TwoDimensionalVector c = vectors.get((i + 2) % vectors.size());
 
             int crossProduct = crossProduct(a, b, c);
-
             if (crossProduct > 0) {
-                clockwise = true;
-            } else if (crossProduct < 0) {
                 counterclockwise = true;
+            } else if (crossProduct < 0) {
+                clockwise = true;
             }
-
-            if (clockwise && counterclockwise) {
+            if (counterclockwise && clockwise) {
                 return false;
             }
         }

@@ -31,8 +31,8 @@ public class TwoDimensionalVectorTest {
         TwoDimensionalVector vector1 = new TwoDimensionalVector(3, 4);
         TwoDimensionalVector vector2 = new TwoDimensionalVector(5, 6);
         TwoDimensionalVector vector3 = vector1.subtract(vector2);
-        assertEquals(-2, vector3.x, 0.001);
-        assertEquals(-2, vector3.y, 0.001);
+        assertEquals(-2, vector3.getX(), 0.001);
+        assertEquals(-2, vector3.getY(), 0.001);
     }
 
 }
