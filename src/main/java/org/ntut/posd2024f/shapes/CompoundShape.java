@@ -10,7 +10,6 @@ public class CompoundShape implements Shape {
     }
 
     public double area() {
-        ArrayList<Shape> shapes = new ArrayList<Shape>();
         double totalArea = 0;
         for (Shape shape : shapes) {
             totalArea += shape.area();
@@ -19,7 +18,6 @@ public class CompoundShape implements Shape {
     }
 
     public double perimeter() {
-        ArrayList<Shape> shapes = new ArrayList<Shape>();
         double totalPerimeter = 0;
         for (Shape shape : shapes) {
             totalPerimeter += shape.perimeter();

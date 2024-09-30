@@ -42,8 +42,9 @@ public class ConvexPolygon implements Shape {
         if (vectors.size() < 3) {
             return false;
         }
-        boolean gotPositive = false;
-        boolean gotNegative = false;
+        boolean clockwise = false;
+        boolean counterclockwise = false;
+
         for (int i = 0; i < vectors.size(); i++) {
             TwoDimensionalVector a = vectors.get(i);
             TwoDimensionalVector b = vectors.get((i + 1) % vectors.size());
@@ -55,12 +56,12 @@ public class ConvexPolygon implements Shape {
             int crossProduct = ab.dot(bc);
 
             if (crossProduct > 0) {
-                gotPositive = true;
+                clockwise = true;
             } else if (crossProduct < 0) {
-                gotNegative = true;
+                counterclockwise = true;
             }
 
-            if (gotPositive && gotNegative) {
+            if (clockwise && counterclockwise) {
                 return false;
             }
         }

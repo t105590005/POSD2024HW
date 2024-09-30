@@ -9,7 +9,6 @@ public class Sort {
     public static Comparator<Shape> BY_PERIMETER_DESCENDING = new ByPerimeterDescending();
 
     private static class ByAreaAscending implements Comparator<Shape> {
-
         public int compare(Shape left, Shape right) {
             return Double.compare(left.area(), right.area());
         }

@@ -4,15 +4,22 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
+import java.util.Vector;
 
 public class SortTest {
 
     @Test
     public void testSortByAreaAscending() throws Exception {
+        List<TwoDimensionalVector> vectors = new Vector<>();
+        vectors.add(new TwoDimensionalVector(0, 0));
+        vectors.add(new TwoDimensionalVector(4, 0));
+        vectors.add(new TwoDimensionalVector(0, 3));
+
         ArrayList<Shape> shapes = new ArrayList<>();
         shapes.add(new Circle(4.8));
         shapes.add(new Rectangle(4, 8));
-        // shapes.add(new Triangle(3, 4, 5));
+        shapes.add(new Triangle(vectors));
 
         Collections.sort(shapes, Sort.BY_AREA_ASCENDING);
 
@@ -23,11 +30,15 @@ public class SortTest {
 
     @Test
     public void testSortByAreaDescending() throws Exception {
-        ArrayList<Shape> shapes = new ArrayList<>();
+        List<TwoDimensionalVector> vectors = new Vector<>();
+        vectors.add(new TwoDimensionalVector(0, 0));
+        vectors.add(new TwoDimensionalVector(4, 0));
+        vectors.add(new TwoDimensionalVector(0, 3));
 
+        ArrayList<Shape> shapes = new ArrayList<>();
         shapes.add(new Circle(4.8));
         shapes.add(new Rectangle(4, 8));
-        // shapes.add(new Triangle(3, 4, 5));
+        shapes.add(new Triangle(vectors));
 
         Collections.sort(shapes, Sort.BY_AREA_DESCENDING);
 
@@ -38,10 +49,15 @@ public class SortTest {
 
     @Test
     public void testSortByPerimeterAscending() throws Exception {
+        List<TwoDimensionalVector> vectors = new Vector<>();
+        vectors.add(new TwoDimensionalVector(0, 0));
+        vectors.add(new TwoDimensionalVector(4, 0));
+        vectors.add(new TwoDimensionalVector(0, 3));
+
         ArrayList<Shape> shapes = new ArrayList<>();
         shapes.add(new Circle(4.8));
         shapes.add(new Rectangle(4, 8));
-        // shapes.add(new Triangle(3, 4, 5));
+        shapes.add(new Triangle(vectors));
 
         Collections.sort(shapes, Sort.BY_PERIMETER_ASCENDING);
 
@@ -52,10 +68,15 @@ public class SortTest {
 
     @Test
     public void testSortByPerimeterDescending() throws Exception {
+        List<TwoDimensionalVector> vectors = new Vector<>();
+        vectors.add(new TwoDimensionalVector(0, 0));
+        vectors.add(new TwoDimensionalVector(4, 0));
+        vectors.add(new TwoDimensionalVector(0, 3));
+
         ArrayList<Shape> shapes = new ArrayList<>();
         shapes.add(new Circle(4.8));
         shapes.add(new Rectangle(4, 8));
-        // shapes.add(new Triangle(3, 4, 5));
+        shapes.add(new Triangle(vectors));
 
         Collections.sort(shapes, Sort.BY_PERIMETER_DESCENDING);
 
