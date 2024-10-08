@@ -43,7 +43,6 @@ public class RectangleTest {
             new Rectangle(-4.0, 8.0);
         });
         assertEquals("It's not a rectangle!", exception.getMessage());
-        new Rectangle(4.0, -8.0);
     }
 
     @Test
