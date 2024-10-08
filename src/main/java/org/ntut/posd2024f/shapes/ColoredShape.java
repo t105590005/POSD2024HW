@@ -8,7 +8,7 @@ public class ColoredShape implements Shape {
 
     public ColoredShape(Shape shape, String color) {
         this.shape = shape;
-        if (color != "RED" || color != "GREEN" || color != "BLUE") {
+        if (color.equals("Red") || color.equals("Green") || color.equals("Blue")) {
             throw new ShapeException("The color is not Red or Green or Blue.");
         }
         this.color = color;
