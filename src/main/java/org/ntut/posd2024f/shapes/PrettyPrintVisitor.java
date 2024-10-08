@@ -1,6 +1,6 @@
 package org.ntut.posd2024f.shapes;
 
-import java.util.List;
+import java.util.Iterator;
 
 /*The PrettyPrintVisitor class is to print the shape in a pretty format.
 
@@ -32,14 +32,15 @@ public class PrettyPrintVisitor implements Visitor<String> {
 
     @Override
     public void visitCompoundShape(CompoundShape compoundShape) {
-        if (compoundShape.iterator().hasNext() == false) {
+        Iterator<Shape> iterator = compoundShape.iterator();
+        if (!iterator.hasNext()) {
             result.append("CompoundShape {}");
         } else {
             result.append("CompoundShape {");
             result.append("\n");
-            while (compoundShape.iterator().hasNext()) {
+            while (iterator.hasNext()) {
                 result.append("  ");
-                compoundShape.iterator().next().accept(this);
+                iterator.next().accept(this);
                 result.append("\n");
             }
             result.append("}");
@@ -77,4 +78,5 @@ public class PrettyPrintVisitor implements Visitor<String> {
     public String getResult() {
         return result.toString();
     }
+
 }

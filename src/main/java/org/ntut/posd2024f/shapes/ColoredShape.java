@@ -8,10 +8,11 @@ public class ColoredShape implements Shape {
 
     public ColoredShape(Shape shape, String color) {
         this.shape = shape;
-        if (color.equals("Red") || color.equals("Green") || color.equals("Blue")) {
-            throw new ShapeException("The color is not Red or Green or Blue.");
+        if (color.equals("RED") || color.equals("GREEN") || color.equals("BLUE")) {
+            this.color = color;
+        } else {
+            throw new ShapeException("Color is not valid.");
         }
-        this.color = color;
 
     }
 
