@@ -46,5 +46,6 @@ public class ColoredShape implements Shape {
 
     @Override
     public <T> void accept(Visitor<T> visitor) {
+        visitor.visitColoredShape(this);
     }
 }

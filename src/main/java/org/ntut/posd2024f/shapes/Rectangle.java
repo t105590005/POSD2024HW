@@ -27,4 +27,9 @@ public class Rectangle implements Shape {
     public double getWidth() {
         return width;
     }
+
+    @Override
+    public <T> void accept(Visitor<T> visitor) {
+        visitor.visitRectangle(this);
+    }
 }
