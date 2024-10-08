@@ -2,6 +2,9 @@ package org.ntut.posd2024f.shapes;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.List;
+import java.util.Vector;
+
 import org.junit.jupiter.api.Test;
 
 public class PrettyPrintVisitorTest {
@@ -31,5 +34,20 @@ public class PrettyPrintVisitorTest {
         PrettyPrintVisitor prettyPrintVisitor = new PrettyPrintVisitor();
         coloredShape.accept(prettyPrintVisitor);
         assertEquals("\033[0;31mCircle 4.0\033[0m", prettyPrintVisitor.getResult());
+    }
+
+    @Test
+    public void testPrettyPrintVisitorTriangle() {
+        TwoDimensionalVector a = new TwoDimensionalVector(0, 0);
+        TwoDimensionalVector b = new TwoDimensionalVector(3, 0);
+        TwoDimensionalVector c = new TwoDimensionalVector(0, 4);
+        List<TwoDimensionalVector> vectors = new Vector<TwoDimensionalVector>();
+        vectors.add(a);
+        vectors.add(b);
+        vectors.add(c);
+        Triangle t = new Triangle(vectors);
+        PrettyPrintVisitor prettyPrintVisitor = new PrettyPrintVisitor();
+        t.accept(prettyPrintVisitor);
+        assertEquals("Triangle [(0.0, 0.0), (3.0, 0.0), (0.0, 4.0)]", prettyPrintVisitor.getResult());
     }
 }
