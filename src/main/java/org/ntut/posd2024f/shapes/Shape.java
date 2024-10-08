@@ -15,4 +15,8 @@ public interface Shape {
         return new NullIterator();
     }
 
+    public default <T> void accept(Visitor<T> visitor) {
+        throw new ShapeException("Illegal Operation");
+    }
+
 }

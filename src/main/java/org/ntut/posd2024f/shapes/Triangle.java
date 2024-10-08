@@ -8,6 +8,8 @@ public class Triangle implements Shape {
     private TwoDimensionalVector v2;
     private TwoDimensionalVector v3;
 
+    private List<TwoDimensionalVector> vectors;
+
     public Triangle(List<TwoDimensionalVector> vectors) throws ShapeException {
         if (vectors.size() != 3) {
             throw new ShapeException("It's not a triangle!");
@@ -22,6 +24,7 @@ public class Triangle implements Shape {
                 this.v1 = vectors.get(0);
                 this.v2 = vectors.get(1);
                 this.v3 = vectors.get(2);
+                this.vectors = vectors;
             } else {
                 throw new ShapeException("It's not a triangle!");
             }
@@ -52,5 +55,9 @@ public class Triangle implements Shape {
 
     public TwoDimensionalVector getV3() {
         return v3;
+    }
+
+    public List<TwoDimensionalVector> getVectors() {
+        return vectors;
     }
 }

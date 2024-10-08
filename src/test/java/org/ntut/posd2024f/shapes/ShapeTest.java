@@ -1,10 +1,12 @@
 package org.ntut.posd2024f.shapes;
 
-import static org.junit.Assert.*;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
+
+import org.junit.jupiter.api.Test;
 
 public class ShapeTest {
     @Test

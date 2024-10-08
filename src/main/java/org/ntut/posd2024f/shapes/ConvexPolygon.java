@@ -71,4 +71,9 @@ public class ConvexPolygon implements Shape {
     public List<TwoDimensionalVector> getVectors() {
         return vectors;
     }
+
+    @Override
+    public <T> void accept(Visitor<T> visitor) {
+        visitor.visitConvexPolygon(this);
+    }
 }

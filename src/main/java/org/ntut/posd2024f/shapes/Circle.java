@@ -21,4 +21,9 @@ public class Circle implements Shape {
     public double getRadius() {
         return radius;
     }
+
+    @Override
+    public <T> void accept(Visitor<T> visitor) {
+        visitor.visitCircle(this);
+    }
 }

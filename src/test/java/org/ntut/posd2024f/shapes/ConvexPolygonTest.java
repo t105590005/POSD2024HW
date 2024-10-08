@@ -1,17 +1,13 @@
 package org.ntut.posd2024f.shapes;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
 import java.util.Vector;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Test;
 
 public class ConvexPolygonTest {
-    @Rule
-    public ExpectedException thrown = ExpectedException.none();
 
     @Test
     public void testConvexPolygonConstructorFail() {
@@ -21,10 +17,10 @@ public class ConvexPolygonTest {
         vectors.add(new TwoDimensionalVector(4, 3));
         vectors.add(new TwoDimensionalVector(0, 3));
         vectors.add(new TwoDimensionalVector(1, 1));
-        thrown.expect(ShapeException.class);
-        thrown.expectMessage("It's not a convex polygon!");
-        new ConvexPolygon(vectors);
-
+        ShapeException exception = assertThrows(ShapeException.class, () -> {
+            new ConvexPolygon(vectors);
+        });
+        assertEquals("It's not a convex polygon!", exception.getMessage());
     }
 
     @Test

@@ -1,16 +1,10 @@
 package org.ntut.posd2024f.shapes;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Test;
 
 public class CircleTest {
-
-    @Rule
-    public ExpectedException thrown = ExpectedException.none();
-
     @Test
     public void testCircleConstructorPositiveRadius() throws ShapeException {
         Circle c = new Circle(4.0);
@@ -19,16 +13,18 @@ public class CircleTest {
 
     @Test
     public void testCircleConstructorZeroRadius() throws ShapeException {
-        thrown.expect(ShapeException.class);
-        thrown.expectMessage("It's not a circle!");
-        new Circle(0);
+        ShapeException exception = assertThrows(ShapeException.class, () -> {
+            new Circle(0);
+        });
+        assertEquals("It's not a circle!", exception.getMessage());
     }
 
     @Test
     public void testCircleConstructorNegativeRadius() throws ShapeException {
-        thrown.expect(ShapeException.class);
-        thrown.expectMessage("It's not a circle!");
-        new Circle(-4.0);
+        ShapeException exception = assertThrows(ShapeException.class, () -> {
+            new Circle(-4.0);
+        });
+        assertEquals("It's not a circle!", exception.getMessage());
     }
 
     @Test

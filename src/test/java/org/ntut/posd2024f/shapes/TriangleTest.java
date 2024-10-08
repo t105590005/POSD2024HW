@@ -1,17 +1,13 @@
 package org.ntut.posd2024f.shapes;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
 import java.util.Vector;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Test;
 
 public class TriangleTest {
-    @Rule
-    public ExpectedException thrown = ExpectedException.none();
 
     @Test
 
@@ -24,9 +20,10 @@ public class TriangleTest {
         vectors.add(a);
         vectors.add(b);
         vectors.add(c);
-        thrown.expect(ShapeException.class);
-        thrown.expectMessage("It's not a triangle!");
-        new Triangle(vectors);
+        ShapeException exception = assertThrows(ShapeException.class, () -> {
+            new Triangle(vectors);
+        });
+        assertEquals("It's not a triangle!", exception.getMessage());
     }
 
     @Test

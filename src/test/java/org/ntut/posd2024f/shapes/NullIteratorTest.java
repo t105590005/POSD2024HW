@@ -1,19 +1,14 @@
 package org.ntut.posd2024f.shapes;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Vector;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Test;
 
 public class NullIteratorTest {
-
-    @Rule
-    public ExpectedException thrown = ExpectedException.none();
 
     @Test
     public void testNulliteratorHasNextReturn() {
@@ -23,24 +18,24 @@ public class NullIteratorTest {
 
     @Test
     public void testNullIteratorCircleNext() {
-        thrown.expect(NoSuchElementException.class);
-        thrown.expectMessage("Null iterator does not point to any element.");
-        Circle c = new Circle(4.0);
-        c.iterator().next();
+        NoSuchElementException thrown = assertThrows(NoSuchElementException.class, () -> {
+            Circle c = new Circle(4.0);
+            c.iterator().next();
+        });
+        assertEquals("Null iterator does not point to any element.", thrown.getMessage());
     }
 
     @Test
     public void testNullIteratorRectangleNext() {
-        thrown.expect(NoSuchElementException.class);
-        thrown.expectMessage("Null iterator does not point to any element.");
-        Rectangle r = new Rectangle(3, 4);
-        r.iterator().next();
+        NoSuchElementException thrown = assertThrows(NoSuchElementException.class, () -> {
+            Rectangle r = new Rectangle(3, 4);
+            r.iterator().next();
+        });
+        assertEquals("Null iterator does not point to any element.", thrown.getMessage());
     }
 
     @Test
     public void testNullIteratorTriangleNext() {
-        thrown.expect(NoSuchElementException.class);
-        thrown.expectMessage("Null iterator does not point to any element.");
         TwoDimensionalVector a = new TwoDimensionalVector(0, 0);
         TwoDimensionalVector b = new TwoDimensionalVector(3, 0);
         TwoDimensionalVector c = new TwoDimensionalVector(0, 4);
@@ -48,20 +43,24 @@ public class NullIteratorTest {
         vectors.add(a);
         vectors.add(b);
         vectors.add(c);
-        Triangle t = new Triangle(vectors);
-        t.iterator().next();
+        NoSuchElementException thrown = assertThrows(NoSuchElementException.class, () -> {
+            Triangle t = new Triangle(vectors);
+            t.iterator().next();
+        });
+        assertEquals("Null iterator does not point to any element.", thrown.getMessage());
     }
 
     public void testNullIteratorConvexPolygonNext() {
-        thrown.expect(NoSuchElementException.class);
-        thrown.expectMessage("Null iterator does not point to any element.");
         List<TwoDimensionalVector> vectors = new Vector<>();
         vectors.add(new TwoDimensionalVector(0, 0));
         vectors.add(new TwoDimensionalVector(4, 0));
         vectors.add(new TwoDimensionalVector(4, 3));
         vectors.add(new TwoDimensionalVector(0, 3));
-        ConvexPolygon convexPolygon = new ConvexPolygon(vectors);
-        convexPolygon.iterator().next();
+        NoSuchElementException thrown = assertThrows(NoSuchElementException.class, () -> {
+            ConvexPolygon convexPolygon = new ConvexPolygon(vectors);
+            convexPolygon.iterator().next();
+        });
+        assertEquals("Null iterator does not point to any element.", thrown.getMessage());
     }
 
     @Test

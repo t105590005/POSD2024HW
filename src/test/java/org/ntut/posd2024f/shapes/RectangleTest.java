@@ -1,14 +1,10 @@
 package org.ntut.posd2024f.shapes;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Test;
 
 public class RectangleTest {
-    @Rule
-    public ExpectedException thrown = ExpectedException.none();
 
     @Test
     public void testRectangleConstructorPositiveDimensions() throws ShapeException {
@@ -19,29 +15,34 @@ public class RectangleTest {
 
     @Test
     public void testRectangleConstructorZeroWidth() throws ShapeException {
-        thrown.expect(ShapeException.class);
-        thrown.expectMessage("It's not a rectangle!");
-        new Rectangle(0, 8.0);
+        ShapeException exception = assertThrows(ShapeException.class, () -> {
+            new Rectangle(0, 8.0);
+        });
+        assertEquals("It's not a rectangle!", exception.getMessage());
     }
 
     @Test
     public void testRectangleConstructorZeroHeight() throws ShapeException {
-        thrown.expect(ShapeException.class);
-        thrown.expectMessage("It's not a rectangle!");
-        new Rectangle(4.0, 0);
+        ShapeException exception = assertThrows(ShapeException.class, () -> {
+            new Rectangle(4.0, 0);
+        });
+        assertEquals("It's not a rectangle!", exception.getMessage());
     }
 
     @Test
     public void testRectangleConstructorNegativeWidth() throws ShapeException {
-        thrown.expect(ShapeException.class);
-        thrown.expectMessage("It's not a rectangle!");
-        new Rectangle(-4.0, 8.0);
+        ShapeException exception = assertThrows(ShapeException.class, () -> {
+            new Rectangle(4.0, -8.0);
+        });
+        assertEquals("It's not a rectangle!", exception.getMessage());
     }
 
     @Test
     public void testRectangleConstructorNegativeLength() throws ShapeException {
-        thrown.expect(ShapeException.class);
-        thrown.expectMessage("It's not a rectangle!");
+        ShapeException exception = assertThrows(ShapeException.class, () -> {
+            new Rectangle(-4.0, 8.0);
+        });
+        assertEquals("It's not a rectangle!", exception.getMessage());
         new Rectangle(4.0, -8.0);
     }
 
