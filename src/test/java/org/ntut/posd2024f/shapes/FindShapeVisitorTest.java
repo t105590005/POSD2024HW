@@ -73,19 +73,19 @@ public class FindShapeVisitorTest {
         vectors.add(new TwoDimensionalVector(0, 3));
         CompoundShape compound = new CompoundShape();
         compound.add(new Triangle(vectors));
-        CompoundShape comCompound = new CompoundShape();
-        comCompound.add(compound);
+        CompoundShape compound1 = new CompoundShape();
+        compound1.add(compound);
         ColoredShape colorShape1 = new ColoredShape(new Rectangle(3.0, 4.0), "BLUE");
         TextedShape textShape = new TextedShape(colorShape1, "this is a rectangle with blue color");
-        comCompound.add(textShape);
-        ColoredShape colorShape2 = new ColoredShape(comCompound, "GREEN");
-        CompoundShape comComCompound = new CompoundShape();
-        comComCompound.add(new Circle(3.0));
-        comComCompound.add(colorShape2);
+        compound1.add(textShape);
+        ColoredShape colorShape2 = new ColoredShape(compound1, "GREEN");
+        CompoundShape compound2 = new CompoundShape();
+        compound2.add(new Circle(3.0));
+        compound2.add(colorShape2);
 
         FindShapeVisitor findShapeVisitor = new FindShapeVisitor(shape -> shape.area() > 10);
-        comComCompound.accept(findShapeVisitor);
-        assertEquals(4, findShapeVisitor.getResult().size());
+        compound2.accept(findShapeVisitor);
+        assertEquals(7, findShapeVisitor.getResult().size());
 
     }
 

@@ -50,9 +50,7 @@ public class FindShapeVisitor implements Visitor<List<Shape>> {
         Iterator<Shape> iterator = compoundShape.iterator();
         while (iterator.hasNext()) {
             Shape shape = iterator.next();
-            FindShapeVisitor findShapeVisitor = new FindShapeVisitor(predicate);
-            shape.accept(findShapeVisitor);
-            result.addAll(findShapeVisitor.getResult());
+            shape.accept(this);
         }
     }
 
@@ -61,9 +59,7 @@ public class FindShapeVisitor implements Visitor<List<Shape>> {
         if (predicate.test(textedShape)) {
             result.add(textedShape);
         }
-        if (predicate.test(textedShape.getShape())) {
-            result.add(textedShape.getShape());
-        }
+        textedShape.getShape().accept(this);
     }
 
     @Override
@@ -71,9 +67,7 @@ public class FindShapeVisitor implements Visitor<List<Shape>> {
         if (predicate.test(coloredShape)) {
             result.add(coloredShape);
         }
-        if (predicate.test(coloredShape.getShape())) {
-            result.add(coloredShape.getShape());
-        }
+        coloredShape.getShape().accept(this);
     }
 
     public List<Shape> getResult() {
