@@ -22,7 +22,7 @@ public class NullIteratorTest {
             Circle c = new Circle(4.0);
             c.iterator().next();
         });
-        assertEquals("Null iterator does not point to any element.", thrown.getMessage());
+        assertEquals("Null iterator does not point to any element", thrown.getMessage());
     }
 
     @Test
@@ -31,7 +31,7 @@ public class NullIteratorTest {
             Rectangle r = new Rectangle(3, 4);
             r.iterator().next();
         });
-        assertEquals("Null iterator does not point to any element.", thrown.getMessage());
+        assertEquals("Null iterator does not point to any element", thrown.getMessage());
     }
 
     @Test
@@ -47,7 +47,7 @@ public class NullIteratorTest {
             Triangle t = new Triangle(vectors);
             t.iterator().next();
         });
-        assertEquals("Null iterator does not point to any element.", thrown.getMessage());
+        assertEquals("Null iterator does not point to any element", thrown.getMessage());
     }
 
     public void testNullIteratorConvexPolygonNext() {
@@ -60,7 +60,7 @@ public class NullIteratorTest {
             ConvexPolygon convexPolygon = new ConvexPolygon(vectors);
             convexPolygon.iterator().next();
         });
-        assertEquals("Null iterator does not point to any element.", thrown.getMessage());
+        assertEquals("Null iterator does not point to any element", thrown.getMessage());
     }
 
     @Test
