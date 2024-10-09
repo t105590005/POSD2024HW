@@ -19,6 +19,34 @@ public class FindShapeVisitorTest {
     }
 
     @Test
+    public void testFindeShapeVisitorCirclehasText() {
+        Circle circle = new Circle(4);
+        TextedShape textedShape = new TextedShape(circle, "this is a circle");
+        FindShapeVisitor findShapeVisitor = new FindShapeVisitor(shape -> shape.area() > 10);
+        textedShape.accept(findShapeVisitor);
+        assertEquals(2, findShapeVisitor.getResult().size());
+    }
+
+    @Test
+    public void testFindeShapeVisitorCirclehasColor() {
+        Circle circle = new Circle(4);
+        ColoredShape coloredShape = new ColoredShape(circle, "BLUE");
+        FindShapeVisitor findShapeVisitor = new FindShapeVisitor(shape -> shape.area() > 10);
+        coloredShape.accept(findShapeVisitor);
+        assertEquals(2, findShapeVisitor.getResult().size());
+    }
+
+    @Test
+    public void testFindeShapeVisitorCirclehasTextandColor() {
+        Circle circle = new Circle(4);
+        ColoredShape coloredShape = new ColoredShape(circle, "BLUE");
+        TextedShape textedShape = new TextedShape(coloredShape, "this is a circle with blue color");
+        FindShapeVisitor findShapeVisitor = new FindShapeVisitor(shape -> shape.area() > 10);
+        textedShape.accept(findShapeVisitor);
+        assertEquals(3, findShapeVisitor.getResult().size());
+    }
+
+    @Test
     public void testFindShapeVisitorRectangle() {
         Rectangle rectangle = new Rectangle(4, 8);
         FindShapeVisitor findShapeVisitor = new FindShapeVisitor(shape -> shape.area() > 10);
@@ -66,7 +94,7 @@ public class FindShapeVisitorTest {
     }
 
     @Test
-    public void testFindShapeVisitorCompoundShapehasCompoundShape() {
+    public void testFindShapeVisitorComplexCompoundShape() {
         ArrayList<TwoDimensionalVector> vectors = new ArrayList<TwoDimensionalVector>();
         vectors.add(new TwoDimensionalVector(4, 0));
         vectors.add(new TwoDimensionalVector(4, 3));
@@ -76,7 +104,7 @@ public class FindShapeVisitorTest {
         CompoundShape compound1 = new CompoundShape();
         compound1.add(compound);
         ColoredShape colorShape1 = new ColoredShape(new Rectangle(3.0, 4.0), "BLUE");
-        TextedShape textShape = new TextedShape(colorShape1, "this is a rectangle with blue color");
+        TextedShape textShape = new TextedShape(colorShape1, "this is a rectanglewith blue color");
         compound1.add(textShape);
         ColoredShape colorShape2 = new ColoredShape(compound1, "GREEN");
         CompoundShape compound2 = new CompoundShape();
