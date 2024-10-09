@@ -2,6 +2,7 @@ package org.ntut.posd2024f.shapes;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
@@ -66,14 +67,26 @@ public class FindShapeVisitorTest {
 
     @Test
     public void testFindShapeVisitorCompoundShapehasCompoundShape() {
-        CompoundShape compoundShape = new CompoundShape();
-        CompoundShape compoundShape1 = new CompoundShape();
-        compoundShape1.add(new Rectangle(4, 8));
-        compoundShape1.add(new Circle(4));
-        compoundShape.add(compoundShape1);
+        ArrayList<TwoDimensionalVector> vectors = new ArrayList<TwoDimensionalVector>();
+        vectors.add(new TwoDimensionalVector(4, 0));
+        vectors.add(new TwoDimensionalVector(4, 3));
+        vectors.add(new TwoDimensionalVector(0, 3));
+        CompoundShape compound = new CompoundShape();
+        compound.add(new Triangle(vectors));
+        CompoundShape comCompound = new CompoundShape();
+        comCompound.add(compound);
+        ColoredShape colorShape1 = new ColoredShape(new Rectangle(3.0, 4.0), "BLUE");
+        TextedShape textShape = new TextedShape(colorShape1, "this is a rectangle with blue color");
+        comCompound.add(textShape);
+        ColoredShape colorShape2 = new ColoredShape(comCompound, "GREEN");
+        CompoundShape comComCompound = new CompoundShape();
+        comComCompound.add(new Circle(3.0));
+        comComCompound.add(colorShape2);
+
         FindShapeVisitor findShapeVisitor = new FindShapeVisitor(shape -> shape.area() > 10);
-        compoundShape.accept(findShapeVisitor);
-        assertEquals(3, findShapeVisitor.getResult().size());
+        comComCompound.accept(findShapeVisitor);
+        assertEquals(4, findShapeVisitor.getResult().size());
+
     }
 
     @Test
