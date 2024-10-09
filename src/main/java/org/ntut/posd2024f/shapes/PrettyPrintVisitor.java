@@ -49,7 +49,6 @@ public class PrettyPrintVisitor implements Visitor<String> {
             while (iterator.hasNext()) {
                 Shape shape = iterator.next();
                 String temp = "";
-                result += "  ";
                 PrettyPrintVisitor visitor = new PrettyPrintVisitor();
                 shape.accept(visitor);
                 if (shape.iterator().hasNext()) {
