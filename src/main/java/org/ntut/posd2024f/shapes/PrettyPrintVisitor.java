@@ -10,6 +10,12 @@ public class PrettyPrintVisitor implements Visitor<String> {
 
     private String result = "";
 
+    public static String trimEnd(String value) {
+        String END_SPACES_REGEX = "\\s+$";
+        String EMPTY_STRING = "";
+        return value.replaceFirst(END_SPACES_REGEX, EMPTY_STRING);
+    }
+
     @Override
     public void visitCircle(Circle circle) {
         result += "Circle " + circle.getRadius();
@@ -26,7 +32,7 @@ public class PrettyPrintVisitor implements Visitor<String> {
         for (int i = 0; i < triangle.getVectors().size(); i++) {
             result += triangle.getVectors().get(i).toString() + " ";
         }
-        result = result.trim();
+        result = trimEnd(result);
     }
 
     @Override
@@ -35,8 +41,7 @@ public class PrettyPrintVisitor implements Visitor<String> {
         for (int i = 0; i < convexPolygon.getVectors().size(); i++) {
             result += convexPolygon.getVectors().get(i).toString() + " ";
         }
-        result = result.trim();
-
+        result = trimEnd(result);
     }
 
     @Override
@@ -72,20 +77,19 @@ public class PrettyPrintVisitor implements Visitor<String> {
 
     @Override
     public void visitColoredShape(ColoredShape coloredShape) {
-        result += "\033[0;";
         switch (coloredShape.getColor()) {
             case "RED":
-                result += "31m";
+                result += "\u001B[31m";
                 break;
             case "GREEN":
-                result += "32m";
+                result += "\u001B[32m";
                 break;
             case "BLUE":
-                result += "34m";
+                result += "\u001B[34m";
                 break;
         }
         coloredShape.getShape().accept(this);
-        result += "\033[0m";
+        result += "\u001B[0m";
     }
 
     @Override

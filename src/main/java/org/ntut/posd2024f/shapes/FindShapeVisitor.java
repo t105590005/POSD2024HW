@@ -1,6 +1,7 @@
 package org.ntut.posd2024f.shapes;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -39,6 +40,7 @@ public class FindShapeVisitor implements Visitor<List<Shape>> {
         if (predicate.test(convexPolygon)) {
             result.add(convexPolygon);
         }
+
     }
 
     @Override
@@ -46,10 +48,10 @@ public class FindShapeVisitor implements Visitor<List<Shape>> {
         if (predicate.test(compoundShape)) {
             result.add(compoundShape);
         }
-        while (compoundShape.iterator().hasNext()) {
-            if (predicate.test(compoundShape.iterator().next())) {
-                result.add(compoundShape.iterator().next());
-            }
+        Iterator<Shape> iterator = compoundShape.iterator();
+        while (iterator.hasNext()) {
+            Shape shape = iterator.next();
+            shape.accept(this);
         }
     }
 
