@@ -24,7 +24,7 @@ public class PrettyPrintVisitorTest {
         compoundShape.add(new Circle(4));
         PrettyPrintVisitor prettyPrintVisitor = new PrettyPrintVisitor();
         compoundShape.accept(prettyPrintVisitor);
-        assertEquals("CompoundShape {\n  Rectangle 4.0 8.0\n  Circle 4.0\n}", prettyPrintVisitor.getResult());
+        assertEquals("CompoundShape {  \n  Rectangle 4.0 8.0  \n  Circle 4.0\n}", prettyPrintVisitor.getResult());
     }
 
     @Test

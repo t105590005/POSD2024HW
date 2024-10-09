@@ -45,13 +45,20 @@ public class PrettyPrintVisitor implements Visitor<String> {
         if (!iterator.hasNext()) {
             result += "CompoundShape {}";
         } else {
-            result += "CompoundShape {\n";
+            result += "CompoundShape {";
             while (iterator.hasNext()) {
                 Shape shape = iterator.next();
+                String temp = "";
                 result += "  ";
-                shape.accept(this);
-                if (iterator.hasNext()) {
-                    result += "\n";
+                PrettyPrintVisitor visitor = new PrettyPrintVisitor();
+                shape.accept(visitor);
+                if (shape.iterator().hasNext()) {
+                    temp = "\n" + visitor.getResult();
+                    temp = temp.replace("\n", "\n  ");
+                    result += temp;
+
+                } else {
+                    result += "\n  " + visitor.getResult();
                 }
             }
             result += "\n}";
