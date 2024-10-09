@@ -48,6 +48,20 @@ public class PrettyPrintVisitorTest {
         Triangle t = new Triangle(vectors);
         PrettyPrintVisitor prettyPrintVisitor = new PrettyPrintVisitor();
         t.accept(prettyPrintVisitor);
-        assertEquals("Triangle [(0.0, 0.0), (3.0, 0.0), (0.0, 4.0)]", prettyPrintVisitor.getResult());
+        assertEquals("Triangle [0,0] [3,0] [0,4]", prettyPrintVisitor.getResult());
+    }
+
+    @Test
+    public void testPrettyPrintVisitorConvexPolygon() {
+        List<TwoDimensionalVector> vectors = new Vector<>();
+        vectors.add(new TwoDimensionalVector(0, 3));
+        vectors.add(new TwoDimensionalVector(-5, 3));
+        vectors.add(new TwoDimensionalVector(-5, -3));
+        vectors.add(new TwoDimensionalVector(0, -3));
+        vectors.add(new TwoDimensionalVector(4, 0));
+        ConvexPolygon polygon = new ConvexPolygon(vectors);
+        PrettyPrintVisitor prettyPrintVisitor = new PrettyPrintVisitor();
+        polygon.accept(prettyPrintVisitor);
+        assertEquals("ConvexPolygon [0,3] [-5,3] [-5,-3] [0,-3] [4,0]", prettyPrintVisitor.getResult());
     }
 }
