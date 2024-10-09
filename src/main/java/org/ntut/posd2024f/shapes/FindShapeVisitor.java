@@ -40,7 +40,6 @@ public class FindShapeVisitor implements Visitor<List<Shape>> {
         if (predicate.test(convexPolygon)) {
             result.add(convexPolygon);
         }
-
     }
 
     @Override
@@ -51,7 +50,9 @@ public class FindShapeVisitor implements Visitor<List<Shape>> {
         Iterator<Shape> iterator = compoundShape.iterator();
         while (iterator.hasNext()) {
             Shape shape = iterator.next();
-            shape.accept(this);
+            FindShapeVisitor findShapeVisitor = new FindShapeVisitor(predicate);
+            shape.accept(findShapeVisitor);
+            result.addAll(findShapeVisitor.getResult());
         }
     }
 
