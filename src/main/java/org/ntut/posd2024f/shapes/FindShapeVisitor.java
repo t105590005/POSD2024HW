@@ -51,7 +51,9 @@ public class FindShapeVisitor implements Visitor<List<Shape>> {
         Iterator<Shape> iterator = compoundShape.iterator();
         while (iterator.hasNext()) {
             Shape shape = iterator.next();
-            shape.accept(this);
+            FindShapeVisitor visitor = new FindShapeVisitor(predicate);
+            shape.accept(visitor);
+            result.add(shape);
         }
     }
 

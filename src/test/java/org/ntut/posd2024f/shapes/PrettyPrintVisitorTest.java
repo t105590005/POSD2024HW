@@ -2,6 +2,7 @@ package org.ntut.posd2024f.shapes;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
@@ -78,7 +79,7 @@ public class PrettyPrintVisitorTest {
         ColoredShape coloredShape = new ColoredShape(circle, "RED");
         PrettyPrintVisitor prettyPrintVisitor = new PrettyPrintVisitor();
         coloredShape.accept(prettyPrintVisitor);
-        assertEquals("\u001B[31mCircle 4.0\u001B[0m", prettyPrintVisitor.getResult());
+        assertEquals("\u001B[0;31mCircle 4.0\u001B[0m", prettyPrintVisitor.getResult());
     }
 
     @Test
@@ -87,7 +88,7 @@ public class PrettyPrintVisitorTest {
         ColoredShape coloredShape = new ColoredShape(rectangle, "RED");
         PrettyPrintVisitor prettyPrintVisitor = new PrettyPrintVisitor();
         coloredShape.accept(prettyPrintVisitor);
-        assertEquals("\u001B[31mRectangle 4.0 8.0\u001B[0m", prettyPrintVisitor.getResult());
+        assertEquals("\u001B[0;31mRectangle 4.0 8.0\u001B[0m", prettyPrintVisitor.getResult());
     }
 
     @Test
@@ -103,7 +104,7 @@ public class PrettyPrintVisitorTest {
         ColoredShape coloredShape = new ColoredShape(triangle, "RED");
         PrettyPrintVisitor prettyPrintVisitor = new PrettyPrintVisitor();
         coloredShape.accept(prettyPrintVisitor);
-        assertEquals("\u001B[31mTriangle [0,0] [3,0] [0,4]\u001B[0m", prettyPrintVisitor.getResult());
+        assertEquals("\u001B[0;31mTriangle [0,0] [3,0] [0,4]\u001B[0m", prettyPrintVisitor.getResult());
     }
 
     @Test
@@ -118,7 +119,7 @@ public class PrettyPrintVisitorTest {
         ColoredShape coloredShape = new ColoredShape(polygon, "RED");
         PrettyPrintVisitor prettyPrintVisitor = new PrettyPrintVisitor();
         coloredShape.accept(prettyPrintVisitor);
-        assertEquals("\u001B[31mConvexPolygon [0,3] [-5,3] [-5,-3] [0,-3] [4,0]\u001B[0m",
+        assertEquals("\u001B[0;31mConvexPolygon [0,3] [-5,3] [-5,-3] [0,-3] [4,0]\u001B[0m",
                 prettyPrintVisitor.getResult());
     }
 
@@ -130,11 +131,44 @@ public class PrettyPrintVisitorTest {
         ColoredShape coloredShape = new ColoredShape(compoundShape, "RED");
         PrettyPrintVisitor prettyPrintVisitor = new PrettyPrintVisitor();
         coloredShape.accept(prettyPrintVisitor);
-        assertEquals("\u001B[31mCompoundShape {\n" + //
+        assertEquals("\u001B[0;31mCompoundShape {\n" + //
                 "  Rectangle 4.0 8.0\n" + //
                 "  Circle 4.0\n" + //
                 "}\u001B[0m",
                 prettyPrintVisitor.getResult());
 
     }
+
+    @Test
+    public void testPrettyPrintVistorTripleCompoundShape() {
+        ArrayList<TwoDimensionalVector> vectors = new ArrayList<TwoDimensionalVector>();
+        vectors.add(new TwoDimensionalVector(4, 0));
+        vectors.add(new TwoDimensionalVector(4, 3));
+        vectors.add(new TwoDimensionalVector(0, 3));
+        CompoundShape compound = new CompoundShape();
+        compound.add(new Triangle(vectors));
+        CompoundShape comCompound = new CompoundShape();
+        comCompound.add(compound);
+        ColoredShape colorShape1 = new ColoredShape(new Rectangle(3.0, 4.0), "BLUE");
+        TextedShape textShape = new TextedShape(colorShape1, "this is a rectangle with blue color");
+        comCompound.add(textShape);
+        ColoredShape colorShape2 = new ColoredShape(comCompound, "GREEN");
+        CompoundShape comComCompound = new CompoundShape();
+        comComCompound.add(new Circle(3.0));
+        comComCompound.add(colorShape2);
+
+        PrettyPrintVisitor vistor = new PrettyPrintVisitor();
+        comComCompound.accept(vistor);
+
+        assertEquals("CompoundShape {\n" +
+                "  Circle 3.0\n" +
+                "  \u001B[0;32mCompoundShape {\n" +
+                "    CompoundShape {\n" +
+                "      Triangle [4,0] [4,3] [0,3]\n" +
+                "    }\n" +
+                "    \u001B[0;34mRectangle 3.0 4.0\u001B[0m, text: this is a rectangle with blue color\n" +
+                "  }\u001B[0m\n" +
+                "}", vistor.getResult());
+    }
+
 }

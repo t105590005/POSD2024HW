@@ -65,6 +65,18 @@ public class FindShapeVisitorTest {
     }
 
     @Test
+    public void testFindShapeVisitorCompoundShapehasCompoundShape() {
+        CompoundShape compoundShape = new CompoundShape();
+        CompoundShape compoundShape1 = new CompoundShape();
+        compoundShape1.add(new Rectangle(4, 8));
+        compoundShape1.add(new Circle(4));
+        compoundShape.add(compoundShape1);
+        FindShapeVisitor findShapeVisitor = new FindShapeVisitor(shape -> shape.area() > 10);
+        compoundShape.accept(findShapeVisitor);
+        assertEquals(3, findShapeVisitor.getResult().size());
+    }
+
+    @Test
     public void FindShapeVisitorTextedShape() {
         TextedShape textedShape = new TextedShape(new Circle(4), "Circle");
         FindShapeVisitor findShapeVisitor = new FindShapeVisitor(shape -> shape.area() > 10);
