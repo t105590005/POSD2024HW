@@ -17,7 +17,7 @@ public class PrettyPrintVisitor implements Visitor<String> {
 
     @Override
     public void visitRectangle(Rectangle rectangle) {
-        result += "Rectangle " + rectangle.getWidth() + " " + rectangle.getLength();
+        result += "Rectangle " + rectangle.getLength() + " " + rectangle.getWidth();
     }
 
     @Override
@@ -54,6 +54,7 @@ public class PrettyPrintVisitor implements Visitor<String> {
                     result += "\n";
                 }
             }
+            result += "\n}";
         }
     }
 
@@ -78,7 +79,7 @@ public class PrettyPrintVisitor implements Visitor<String> {
                 break;
         }
         coloredShape.getShape().accept(this);
-        result += "\\033[0m";
+        result += "\033[0m";
     }
 
     @Override
